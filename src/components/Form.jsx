@@ -7,19 +7,23 @@ const Form = ({ add }) => {
   const [note, setNote] = useState('');
 
   const handleSubmit = e => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    if (note === '') {
-      alert('Please add a note');
-      return;
+      if (note === '') {
+        alert('Please add a note');
+        return;
+      }
+
+      const id = uuidv4();
+      const newNote = { id: id, note: note };
+
+      add(newNote);
+    } catch (error) {
+      window.alert(`Error Occurred: ${error.message}`);
+    } finally {
+      setNote('');
     }
-
-    const id = uuidv4();
-    const newNote = { id: id, note: note };
-
-    add(newNote);
-
-    setNote('');
   };
 
   return (

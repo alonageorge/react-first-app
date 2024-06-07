@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { notes as notesData } from './../data';
 import Form from './components/Form';
 import Empty from './components/Empty';
 import Footer from './components/Footer';
@@ -8,11 +7,18 @@ import List from './components/List';
 
 function App() {
 
-  const [notes, setNotes] = useState(notesData);
+  const [notes, setNotes] = useState([]);
 
   const add = (note) => {
     notes.push(note);
     setNotes([...notes]);
+  };
+  const remove = (note) => {
+    const newNotes = notes.filter((item) => item.id !== note.id);
+    setNotes(newNotes);
+  };
+  const getAll = (notesData) => {
+    setNotes(notesData);
   };
 
   return (
@@ -23,7 +29,7 @@ function App() {
         <div className='row'>
           <div className='col'>
             <Form add={add} />
-            <List notes={notes} />
+            <List notes={notes} remove={remove} getAll={getAll} />
             <Empty notes={notes} />
           </div>
         </div>
