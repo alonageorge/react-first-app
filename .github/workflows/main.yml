@@ -40,7 +40,7 @@ jobs:
      - name: install eslint
        run: npm install eslint --save-dev
      - name: Run ESLint
-       run: npx eslint .  # Adjust path if needed
+       run: npx eslint . --ext .js,.jsx  # Adjust path if needed
        continue-on-error: false
         
   docker-build:
