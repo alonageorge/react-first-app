@@ -39,15 +39,16 @@ jobs:
 
      - name: Install dependencies
        run: npm install
-
+     
      - name: install eslint
        run: npm install eslint --save-dev
 
      - name: Create reports directory
        run: mkdir -p reports
-       
+     - name: 🧹 Lint code
+       run: npm run lint
      - name: Run ESLint
-       run: npx eslint . --ext .js, .jsx --format=json > reports/lint.json || true  # Adjust path if needed
+       run: npx eslint . --ext .js,.jsx --format=json > reports/lint.json || true  # Adjust path if needed
 
      - name: Process ESLint report
        uses: ./
