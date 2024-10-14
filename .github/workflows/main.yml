@@ -47,6 +47,7 @@ jobs:
        run: mkdir -p reports
      - name: 🧹 Lint code
        run: npm run lint:json
+       continue-on-error: true
 
      - uses: ldiego73/eslint-report-action@v1.1
        with:
