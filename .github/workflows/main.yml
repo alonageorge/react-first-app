@@ -46,7 +46,7 @@ jobs:
      - name: Create reports directory
        run: mkdir -p reports
      - name: Run ESLint
-       run: npx eslint . --ext .js --format=json > reports/lint.json || true  # Adjust path if needed
+       run: npx eslint . --ext .js, .jsx --format=json --debug > reports/lint.json || true  # Adjust path if needed
 
      - name: Process ESLint report
        uses: ./
