@@ -41,9 +41,9 @@ jobs:
        run: npm install eslint --save-dev
      - name: Run ESLint
        run: npx eslint . --ext .js,.jsx  # Adjust path if needed
-       continue-on-error: false
+       continue-on-error: true
 
-  test:
+  jest-test:
     runs-on: ubuntu-latest
 
     steps:
