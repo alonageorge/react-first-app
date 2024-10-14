@@ -49,9 +49,9 @@ jobs:
        run: npm run lint:json
 
      - uses: ldiego73/eslint-report-action@v1.1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          report: reports/lint.json
+       with:
+         token: ${{ secrets.GITHUB_TOKEN }}
+         report: reports/lint.json
      - name: Run ESLint
        run: npx eslint . --ext .js,.jsx --format=json > reports/lint.json || true  # Adjust path if needed
 
