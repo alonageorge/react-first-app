@@ -49,12 +49,7 @@ jobs:
      - name: RunL inting
        run: npm run lint -- --format=json > reports/lint.json || true  # Redirect output to JSON file, continue on error
 
-     - name: Upload Linting Report
-       if: success() || failure()  # Proceed regardless of linting outcome
-       uses: actions/upload-artifact@v2
-       with:
-         name: lint-report
-         path: reports/lint.json
+    
        
 #jest test is used for jaavaScript Testing Framework with a focus on simplicity.
   jest-test:
