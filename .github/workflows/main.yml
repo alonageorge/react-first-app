@@ -44,7 +44,7 @@ jobs:
        run: npm install eslint --save-dev
 
      - name: Create reports directory
-       run: mkdir -p reports
+       run: mkdir -p reports && echo "Directory 'reports' created."
        shell: bash
      - name: 🧹 Lint code
        run: npm run lint:json
