@@ -1,12 +1,11 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Form from './Form'; // Adjust the import path if necessary
+import Form from './Form';
 
 describe('Form component', () => {
   let addMock;
 
   beforeEach(() => {
-    addMock = jest.fn(); // Create a mock function for the add prop
+    addMock = vi.fn(); // Create a mock function for the add prop
     render(<Form add={addMock} />);
   });
 
@@ -31,7 +30,7 @@ describe('Form component', () => {
   test('shows alert when submitting an empty note', () => {
     const button = screen.getByRole('button');
 
-    window.alert = jest.fn(); // Mock the alert function
+    window.alert = vi.fn(); // Mock the alert function
 
     fireEvent.click(button);
 
