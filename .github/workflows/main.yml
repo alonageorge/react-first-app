@@ -45,6 +45,7 @@ jobs:
 
      - name: Create reports directory
        run: mkdir -p reports
+       shell: bash
      - name: 🧹 Lint code
        run: npm run lint:json
        continue-on-error: true
