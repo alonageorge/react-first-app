@@ -43,7 +43,7 @@ jobs:
      - name: install eslint
        run: npm install eslint --save-dev
      - name: Run ESLint
-       run: npx eslint . --ext .js,.jsx  -- --format=json > reports/lint.json || true # Adjust path if needed
+       run: npx eslint . --ext .js,.jsx --format=json > reports/lint.json || true # Adjust path if needed
        continue-on-error: true
 
     
