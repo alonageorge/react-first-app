@@ -24,8 +24,9 @@ jobs:
 
     - name: Build the application
       run: npm run build
-
-  lint-test:
+      
+#lint test is used for identifying and fixing problems in JavaScript code.
+  lint-test:  
     runs-on: ubuntu-latest
     steps:
      - name: Checkout code
@@ -44,7 +45,8 @@ jobs:
      - name: Run ESLint
        run: npx eslint . --ext .js,.jsx  # Adjust path if needed
        continue-on-error: true
-
+       
+#jest test is used for jaavaScript Testing Framework with a focus on simplicity.
   jest-test:
     runs-on: ubuntu-latest
 
@@ -62,7 +64,8 @@ jobs:
 
     - name: Run Jest tests
       run: npm test
-
+      
+#Checks for vulnerabilities in dependencies.
   npm-audit:
     runs-on: ubuntu-latest
 
