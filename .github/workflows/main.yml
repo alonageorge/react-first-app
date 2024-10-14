@@ -42,6 +42,25 @@ jobs:
      - name: Run ESLint
        run: npx eslint . --ext .js,.jsx  # Adjust path if needed
        continue-on-error: false
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Specify the Node.js version
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Jest tests
+      run: npm test
+
         
   docker-build:
     runs-on: ubuntu-latest
