@@ -35,7 +35,7 @@ jobs:
      - name: Set up Node.js
        uses: actions/setup-node@v2
        with:
-         node-version: '18'  # Specify your Node.js version
+         node-version: '16'  # Specify your Node.js version
 
      - name: Install dependencies
        run: npm install
@@ -45,8 +45,9 @@ jobs:
 
      - name: Create reports directory
        run: mkdir -p reports
+       
      - name: Run ESLint
-       run: npx eslint . --ext .js, .jsx --format=json --debug > reports/lint.json || true  # Adjust path if needed
+       run: npx eslint . --ext .js, .jsx --format=json > reports/lint.json || true  # Adjust path if needed
 
      - name: Process ESLint report
        uses: ./
