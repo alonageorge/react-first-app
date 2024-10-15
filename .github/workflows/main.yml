@@ -64,9 +64,13 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      
+    - name: junit installation
+      run: npm install --save-dev vitest@latest vitest-junit@latest
 
     - name: Create reports directory
       run: mkdir -p reports
+      
     - name: Verify directory creation
       run: |
          if [ -d reports ]; then
