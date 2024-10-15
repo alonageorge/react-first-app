@@ -65,8 +65,15 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Create reports directory
+      run: mkdir -p reports
+
     - name: Run Jest tests
       run: npm test
+
+    - name: Save Jest Test Report to Folder
+      run: cp reports/jest-test-results.xml reports/
+    
       
 #Checks for vulnerabilities in dependencies.
   npm-audit:
