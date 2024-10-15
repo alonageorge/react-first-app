@@ -9,5 +9,12 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',// Enable globals like describe and test
      // Set up a jsdom environment for testing
+    reporters: [
+      'default',
+      ['vitest-junit', {
+        outputDirectory: 'reports',
+        outputName: 'vitest-results.xml',
+      }],
+    ],
   },
 })
