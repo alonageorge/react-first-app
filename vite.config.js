@@ -12,7 +12,7 @@ export default defineConfig({
      // Set up a jsdom environment for testing
     reporters: [
       'default',
-      ['vitest-junit', {
+      ['vitest-junit-reporter', {
         outputDirectory: 'reports',
         outputName: 'vitest-results.xml',
       }],
