@@ -74,6 +74,13 @@ jobs:
          else
            echo "Failed to create reports directory." && exit 1
           fi
+    - name: Check for Test Report
+      run: |
+         if [ -f reports/vitest-results.xml ]; then
+           echo "Test report found."
+         else
+           echo "Test report not found!" && exit 1
+         fi
     - name: Run Jest tests
       run: npm test
 
