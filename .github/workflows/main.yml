@@ -67,12 +67,19 @@ jobs:
 
     - name: Create reports directory
       run: mkdir -p reports
-
+    - name: Verify directory creation
+      run: |
+         if [ -d reports ]; then
+           echo "Reports directory created successfully."
+         else
+           echo "Failed to create reports directory." && exit 1
+          fi
     - name: Run Jest tests
       run: npm test
 
     - name: Save Jest Test Report to Folder
       run: cp reports/jest-test-results.xml reports/
+      
     
       
 #Checks for vulnerabilities in dependencies.
